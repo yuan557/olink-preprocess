@@ -1,0 +1,22 @@
+# Copy this file to config/project.yaml and fill in your paths.
+# config/project.yaml is gitignored.
+
+# Absolute paths to Olink tools (do not commit the binaries themselves)
+ngs2counts_bin:    "/path/to/olink_ngs/ngs2counts"
+npx_map_sif:       "/path/to/olink_npx_map/npx-map-cli.sif"
+panel_data_archive: "/path/to/panel_data_archive/NPXMap_PanelDataArchive_X.X.X.dat"
+
+# Plate layout CSVs (semicolon-delimited: well_id;sample_id;sample_type;sample_matrix;project)
+plate_layouts:
+  plate1: "/path/to/plate_layout/plate1.csv"
+  # plate2: "/path/to/plate_layout/plate2.csv"
+
+# One entry per Illumina sequencing run
+runs:
+  - run_id: "YYMMDD_INSTRUMENT_RUN_FLOWCELL"
+    run_dir: "/path/to/nexseq2000/YYMMDD_INSTRUMENT_RUN_FLOWCELL"
+    run_units:
+      - plate_layout:   "plate1"
+        library_number: 1
+        index_plate:    "A"
+        panel:          "Reveal"

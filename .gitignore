@@ -1,0 +1,33 @@
+# Secrets and project-specific paths
+.env
+config/project.yaml
+
+# Olink binaries and proprietary data files (do not redistribute)
+*.sif
+*.dat
+olink_ngs/
+olink_npx_map/
+
+# Workflow data outputs
+data/counts/
+data/project/
+data/tmp/
+results/
+
+# Snakemake internals
+.snakemake/
+*.snakemake.log
+
+# SLURM logs
+logs/
+slurm-*.out
+*.out
+*.err
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
