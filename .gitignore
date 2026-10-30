@@ -17,6 +17,8 @@ results/
 # Snakemake internals
 .snakemake/
 *.snakemake.log
+dag.svg
+rulegraph.svg
 
 # SLURM logs
 logs/
@@ -28,6 +30,7 @@ slurm-*.out
 __pycache__/
 *.pyc
 *.pyo
+.venv/
 
 # OS
 .DS_Store

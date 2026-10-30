@@ -13,10 +13,17 @@ Converts raw Illumina BCL/CBCL sequencing data to NPX values via two steps:
 - Access to `ngs2counts` binary and `npx-map-cli.sif` (Olink software, not included)
 - Apptainer module on the cluster
 
-Install Python dependencies into your environment:
+Set up a virtual environment and install dependencies. On Compute Canada / Alliance clusters, use the local wheelhouse:
 ```
-pip install snakemake snakemake-executor-plugin-slurm python-dotenv
+module load python/3.11
+virtualenv --no-download .venv
+source .venv/bin/activate
+pip install --no-index --upgrade pip
+pip install --no-index -r requirements.txt
 ```
+(`requirements.txt` is a frozen `pip freeze` of `snakemake`, `snakemake-executor-plugin-slurm`, and `python-dotenv`.)
+
+Elsewhere, drop `--no-index`/`--no-download` and install from PyPI instead.
 
 ## Setup
 
@@ -40,6 +47,12 @@ snakemake --profile profiles/slurm -n
 Full run on SLURM:
 ```
 snakemake --profile profiles/slurm
+```
+
+Visualize the DAG:
+```
+snakemake --dag | dot -Tpng > dag.png
+snakemake --rulegraph | dot -Tpng > rulegraph.png
 ```
 
 ## Outputs
